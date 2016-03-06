@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Open Data Button</title>
+  <meta name="description" content="">
+  <meta name="author" content="Cottage Labs">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script type="text/javascript" src="//static.cottagelabs.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="//static.cottagelabs.com/bootstrap-3.0.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//static.cottagelabs.com/bootstrap-3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="//static.cottagelabs.com/marked.js"></script>
+  <script type="text/javascript" src="//static.cottagelabs.com/getter/getter.js"></script>
+  <script type="text/javascript" src="//static.cottagelabs.com/holder/jquery.holder.js"></script>
+  <script type="text/javascript" src="//static.cottagelabs.com/d3/d3.v3.min.js"></script>
+  <script type="text/javascript" src="//static.cottagelabs.com/d3/topojson.v1.min.js"></script>
+  <script type="text/javascript" src="//static.cottagelabs.com/loginstate.js"></script>
+
+  <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  <link href='/static/odb.css' rel='stylesheet' type='text/css'>
+
+  <script>
+  jQuery(document).ready(function() {
+    getter();
+    var logged = LoginState.get("clogins");
+    if (logged) {
+      $('.ting').show();
+      $('.notting').hide();
+    }
+  });
+  </script>
+  
+  <style>
+    markdown {
+      display:none;
+    }
+    .ting {
+      display:none;
+    }
+    html{
+      -webkit-tap-highlight-color:rgba(0,0,0,0);
+      margin:0;
+      padding:0;
+    }
+    body {
+      font-family:"Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+      margin:70px 0 0 0;
+      background-color:white;
+      padding:0;
+    }
+    .container-fluid {
+      margin:0 auto 0 auto;
+      padding-left:15px;
+      padding-right:15px;
+      max-width:1200px;
+    }
+    .navbar {
+        -webkit-box-shadow: 0 1px 1px 0 rgba(51,51,51,1);
+        -moz-box-shadow: 0 1px 1px 0 rgba(51,51,51,1);
+        box-shadow: 0 1px 1px 0 rgba(51,51,51,1);
+    }
+    .navbar-nav li{
+    }
+    .navbar-nav li a{
+      font-size:1em;
+      color:#212f3f;
+      height:51px;
+      padding:13px 10px 13px 10px;
+    }
+    .navbar-nav li a:hover{
+      color:#212f3f;
+      background-color:#398bc5;;
+    }
+    .navbar-nav li.active{
+      color:#212f3f;
+      background-color:#9dfdfd;
+    }
+    .navbar-nav{
+      height:50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar navbar-fixed-top" style="background-color:white;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="glyphicon glyphicon-list"></span>
+        </button>
+        <ul class="nav navbar-nav">
+          <li><img class="img" src="//data.openaccessbutton.org/static/ODB_Logo_Transparent_311.png" style="height:52px;padding-top:2px;"></li>
+          <li><a href="/" style="font-size:18px;">Open Data Button</a></li>
+          <li><p style="padding-top:10px;"><small>&lt;beta&gt;</small></p></li>
+        </ul>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="/action">Take action</a></li>
+          <li><a href="/request">Requests</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="https://openaccessbutton.org/blog">Blog</a></li>
+          <li class="ting"><a href="/account">Your account</a></li>
+          <li class="notting"><a href="/login">Login</a></li>
+          <li class="notting" style="background-color:#398bc5;;color:#212f3f;height:55px;z-index:10000;
+          -webkit-border-bottom-right-radius: 5px;-webkit-border-bottom-left-radius: 5px;
+          -moz-border-radius-bottomright: 5px;-moz-border-radius-bottomleft: 5px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;">
+          <a href="/login" style="font-size:1.2em;font-weight:bold;">Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <getter></getter>
+    
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-74685304-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</body>
+</html>
+

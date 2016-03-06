@@ -1,0 +1,63 @@
+# example nginx config to ensure content can be served to getter and not cause infinte loops
+
+upstream odb {
+    server localhost:3333;
+}
+server {
+    listen 80;
+    server_name odb.test.cottagelabs.com;
+    root /home/cloo/dev/openresearchbutton/odb_static;
+
+    keepalive_timeout 70;
+    proxy_read_timeout 600s;
+
+    location @proxy {
+        proxy_pass http://odb;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header X-Forwarded-For $remote_addr;
+    }
+    
+    location /merged-stylesheets.css {
+        try_files $uri @proxy; 
+    }    
+    location /sockjs {
+        try_files $uri @proxy; 
+    }    
+    location /app {
+        try_files $uri @proxy; 
+    }    
+    location /packages {
+        try_files $uri @proxy; 
+    }    
+    location /login {
+        try_files $uri @proxy;
+    }
+    location /account {
+        try_files $uri @proxy; 
+    }    
+    location /request/ {
+        try_files $uri @proxy; 
+    }    
+    location /story/ {
+        try_files $uri @proxy; 
+    }    
+
+    location /content {
+        try_files $uri $uri.html $uri.md $uri/index $uri/index.html $uri/index.md /dynamic.html 404 /404 =404;
+        add_header Access-Control-Allow-Origin *;
+    }
+    location = / {
+        index index.html;
+    }
+    location = /index.html {
+        root /home/cloo/dev/openresearchbutton/odb_static;
+    }
+    location / {
+        try_files $uri $uri.html $uri.md /index.html;
+        add_header Access-Control-Allow-Origin *;
+    }
+
+}
+

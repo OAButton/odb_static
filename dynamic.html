@@ -1,0 +1,14 @@
+
+
+<script>
+  jQuery(document).ready(function() {
+    var parts = window.location.pathname.split('/');
+    var type = parts[1];
+    if ( type === 'story' ) type = 'blocked';
+    var id = parts[2];
+    var url = 'https://api.opendatabutton.org/' + type + '/' + id;
+    $.ajax(url).done(function(data) {
+      
+    });
+  });
+</script>
