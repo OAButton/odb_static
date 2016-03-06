@@ -33,6 +33,8 @@ they should be committed to the master branch and they will appear on the live s
     git clone git@github.com:OAButton/odb_static.git
     git checkout develop
     # edit the files as you see fit, create new files as necessary
+    # you can use the status command to check what branch you are on, and what changes you have ready to commit
+    git status
     git add .
     git commit -am 'I edited these files, yay me - or some more useful message'
     git pull origin develop
@@ -49,7 +51,8 @@ they should be committed to the master branch and they will appear on the live s
     # so switch back to develop branch ready to do more editing
     git checkout develop
   
-  
-  
+
+There are UI tools that can control git for you, any of them should be usable as long as you follow the above process.
+Actual editing of the files themselves can be done in any text editor or code editing tool, as you prefer.
   
   
