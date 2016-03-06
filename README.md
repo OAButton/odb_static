@@ -24,3 +24,31 @@ To edit the paraphernalia of the page, see the index.html file in the top level 
 There is also an /email folder where email templates will get stored. Coming soon.
 
 
+HOW TO EDIT THIS CONTENT, AND AUTOMATICALLY UPDATE THE SITE
+
+This repo will automatically deploy changes committed to the site. There is a develop branch and a master branch. 
+Changes should be committed to the develop branch first and viewed on the test site. Once confirmed as being acceptable, 
+they should be committed to the master branch and they will appear on the live site. Here is how to do that:
+
+  git clone git@github.com:OAButton/odb_static.git
+  git checkout develop
+  # edit the files as you see fit
+  git commit -am 'I edited these files, yay me - or some more useful message'
+  git pull origin develop
+  # if others have mad changes there may be some merge fixes to make after the git pull - if so, fix them.
+  git push origin develop
+  # check the test site to see that things look how you want (there may be a couple of minutes delay)
+  git checkout master
+  git merge develop
+  # again check for any merge conflict warnings and fix them
+  git pull origin master
+  # quick check for any more changes made by others, fix any conflicts, then push the merge
+  git push origin master
+  # now your changes are on the live site too!
+  # so switch back to develop branch ready to do more editing
+  git checkout develop
+  
+  
+  
+  
+  
