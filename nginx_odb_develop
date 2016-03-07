@@ -1,6 +1,7 @@
 # example nginx config to ensure content can be served to getter and not cause infinte loops
 
-upstream odb {
+upstream odb_develop {
+    # actually same as live but could point to a running dev instance of the meteor app if necessary
     server localhost:3333;
 }
 server {
@@ -12,7 +13,7 @@ server {
     proxy_read_timeout 600s;
 
     location @proxy {
-        proxy_pass http://odb;
+        proxy_pass http://odb_develop;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
