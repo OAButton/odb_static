@@ -20,13 +20,15 @@ jQuery(document).ready(function() {
       draw(topo,data);
     }
 
-    var qry = {"size":100000, "query": {"match_all": {} }, "fields": ["location.geo.lat","location.geo.lon"] }
-    $.ajax({
-      type: 'GET',
-      url: '//api.opendatabutton.org/query/blocked?source=' + JSON.stringify(qry),
-      dataType: 'JSON',
-      success: updatemap
-    });
+    var getdata = function() {
+      var qry = {"size":100000, "query": {"match_all": {} }, "fields": ["location.geo.lat","location.geo.lon"] }
+      $.ajax({
+        type: 'GET',
+        url: '//api.opendatabutton.org/query/blocked?source=' + JSON.stringify(qry),
+        dataType: 'JSON',
+        success: updatemap
+      });
+    }
 
     var width = document.getElementById('mapspace').offsetWidth;
     var height = document.getElementById('mapspace').offsetHeight;
@@ -53,6 +55,7 @@ jQuery(document).ready(function() {
     d3.json("//static.cottagelabs.com/maps/world-topo.json", function(error, world) {
       topo = topojson.feature(world, world.objects.countries).features;
       draw(topo);
+      getdata();
     });
 
     function addpoint(lon,lat) {    
