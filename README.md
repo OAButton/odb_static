@@ -1,4 +1,6 @@
-This is the ODB static website
+#Open Data Button Website
+
+This is the Open Data Button website's static content
 
 All that has to go in this repo is the content that the ODB site should contain. 
 Pages can be created by putting them in the /content folder. 
@@ -21,10 +23,9 @@ All the content files are requested and served as javascript dynamic requests, t
 
 To edit the paraphernalia of the page, see the index.html file in the top level directory of this repository. Ignore the header.html and footer.html files but DO NOT delete them.
 
-There is also an /email folder where email templates will get stored. Coming soon.
+There is also an /email folder where email templates will get stored.
 
-
-HOW TO EDIT THIS CONTENT, AND AUTOMATICALLY UPDATE THE SITE
+#HOW TO EDIT THIS CONTENT, AND AUTOMATICALLY UPDATE THE SITE
 
 This repo will automatically deploy changes committed to the site. There is a develop branch and a master branch. 
 Changes should be committed to the develop branch first and viewed on the test site. Once confirmed as being acceptable, 
@@ -54,5 +55,19 @@ they should be committed to the master branch and they will appear on the live s
 
 There are UI tools that can control git for you, any of them should be usable as long as you follow the above process.
 Actual editing of the files themselves can be done in any text editor or code editing tool, as you prefer.
-  
-  
+
+## How to Edit, via web interface
+So your steps should be:
+
+1. make some changes in Develop
+2. commit them in Develop
+3. pull from Develop to check in case someone else made changes
+4. If all OK, push to Develop
+5. View on the test site odb.test.cottagelabs.com
+6. checkout master
+7. pull from master
+8. merge Develop
+9. push to master
+
+Although before point 6 you probably could do other pushes to Develop and view them too. Most of the time it should work
+These occasional conflicts are slightly annoying when they occur, but it is still far better than versions of docs flying all over the place anyway!
