@@ -114,7 +114,8 @@ jQuery(document).ready(function() {
           },
           filter: {
             bool: {
-              must:[]
+              must:[{term:{'type.exact':'data'}}],
+              must_not:[{term:{'test':true}}]
             }
           }
         }
