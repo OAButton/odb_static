@@ -1,8 +1,8 @@
-This is the ODB static website
+# odb_static: Open Data Button Website Content
 
 All that has to go in this repo is the content that the ODB site should contain. 
 Pages can be created by putting them in the /content folder. 
-The filename shuold be whatever is expected to form the URL, without the /content part.
+The filename should be whatever is expected to form the URL, without the /content part.
 Content files can include html or markdown. Markdown should be wrapped in opening and closing &lt:markdown&gt; tags.
 
 Supporting content such as images, css files, etc, can be loaded from anywhere or included in this repo. 
@@ -24,7 +24,7 @@ To edit the paraphernalia of the page, see the index.html file in the top level 
 There is also an /email folder where email templates will get stored. Coming soon.
 
 
-HOW TO EDIT THIS CONTENT, AND AUTOMATICALLY UPDATE THE SITE
+#HOW TO EDIT THIS CONTENT, AND AUTOMATICALLY UPDATE THE SITE
 
 This repo will automatically deploy changes committed to the site. There is a develop branch and a master branch. 
 Changes should be committed to the develop branch first and viewed on the test site. Once confirmed as being acceptable, 
